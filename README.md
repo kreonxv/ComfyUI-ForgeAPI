@@ -17,8 +17,7 @@ While ComfyUI is a powerful platform, Forge UI often delivers superior results f
 ## ✨ Key Features
 
 * **SDXL & InstantID Optimized:** Pre-configured for high-performance face reference workflows.
-* **Robust Connectivity:** The websocket client is configured to **wait indefinitely** for the render to finish, preventing timeouts during heavy generation tasks.
-* **Smart Image Handling:** Automatically **flattens alpha channels** on pasted images to ensure consistent processing for ControlNet.
+
 * **Flexible LoRA Support:** Defaults to 4-step LoRAs but supports full customization via dropdowns.
 
 ---
@@ -82,7 +81,7 @@ Place the following models in your Forge UI `models/ControlNet/` directory:
 ### Optional Inputs
 
 * **`instantid_image`**: The reference image for facial identity.
-* **`canny_image`**: The reference image for composition/edges.
+* **`canny_image`**: The reference image for composition.
 * **`weights`**: Fine-tune the influence of InstantID or Canny (`0.0` to `2.0`).
 
 ---
@@ -100,8 +99,3 @@ Place the following models in your Forge UI `models/ControlNet/` directory:
 
 **Dropdowns showing defaults/empty?**
 * **Restart Order:** You must start Forge UI *before* starting ComfyUI (or reload the ComfyUI browser tab) so the node can fetch the model list.
-
-**Manual API Check:**
-You can verify the API is accessible by running this command in PowerShell:
-```powershell
-Invoke-WebRequest [http://127.0.0.1:7860/controlnet/model_list](http://127.0.0.1:7860/controlnet/model_list) | Select-Object -Expand Content
